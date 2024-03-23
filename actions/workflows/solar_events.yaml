@@ -17,31 +17,31 @@ output:
   - dusk: <% ctx().dusk %>
 
 tasks:
-  get_dawn:
+  task1:
     action: astral.get_dawn
     next:
       - when: <% succeeded() %>
         publish: dawn=<% result().result %>
-        do: get_sunrise
-  get_sunrise:
+        do: task2
+  task2:
     action: astral.get_sunrise
     next:
       - when: <% succeeded() %>
         publish: sunrise=<% result().result %>
-        do: get_noon
-  get_noon:
+        do: task3
+  task3:
     action: astral.get_sunrise
     next:
       - when: <% succeeded() %>
         publish: noon=<% result().result %>
-        do: get_sunset
-   get_sunset:
+        do: task4
+   task4:
     action: astral.get_sunset
     next:
       - when: <% succeeded() %>
         publish: sunset=<% result().result %>
-        do: get_dusk
-  get_dusk:
+        do: task5
+  task5:
     action: astral.get_dusk
     next:
       - when: <% succeeded() %>
