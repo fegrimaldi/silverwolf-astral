@@ -1,0 +1,5 @@
+---
+# For North and East, use positive values
+latitude: 38.05
+longitude: -84.23
+timezone: "US/Eastern"
