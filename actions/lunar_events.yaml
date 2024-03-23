@@ -1,0 +1,8 @@
+---
+name: lunar_events
+pack: astral
+description: Gets all lunar events for the day.
+runner_type: orquesta
+entry_point: workflows/lunar_events.yaml
+enabled: true
+

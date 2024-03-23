@@ -1,0 +1,35 @@
+version: 1.0
+
+description: Get's all Astral Lunar Events.
+
+vars:
+  - moonrise: null
+  - moonset: null
+  - phase: null
+
+
+output:
+  - moonrise: <% ctx().moonrise %>
+  - moonset: <% ctx().moonset %>
+  - phase: <% ctx().phase %>
+
+tasks:
+  task1:
+    action: astral.get_moonrise
+    next:
+      - when: <% succeeded() %>
+        publish: moonrise=<% result().result %>
+        do: task2
+  task2:
+    action: astral.get_moonset
+    next:
+      - when: <% succeeded() %>
+        publish: moonset=<% result().result %>
+        do: task3
+  task3:
+    action: astral.get_moonphase
+    next:
+      - when: <% succeeded() %>
+        publish: phase=<% result().result %>
+
+             
