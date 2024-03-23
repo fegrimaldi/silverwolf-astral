@@ -17,6 +17,6 @@ from lib import action
 class GetSunAltAzAction(action.BaseAction):
     def run(self):
         return {
-            "altitude": self.sun['altitude'],
-            "azimuth": self.sun['azimuth'] 
+            "altitude": round(self.sun_alt, 4),
+            "azimuth": round(self.sun_az, 4),
         }
