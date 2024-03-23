@@ -35,7 +35,7 @@ tasks:
       - when: <% succeeded() %>
         publish: noon=<% result().result %>
         do: task4
-   task4:
+  task4:
     action: astral.get_sunset
     next:
       - when: <% succeeded() %>
