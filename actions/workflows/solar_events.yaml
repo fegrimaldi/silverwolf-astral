@@ -2,9 +2,6 @@ version: 1.0
 
 description: Get's all Astral Solar Events.
 
-input:
-
-
 vars:
   - dawn: null
   - sunrise: null
@@ -43,7 +40,7 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish: sunset=<% result().result %>
-        do: get_sunset
+        do: get_dusk
   get_dusk:
     action: astral.get_dusk
     next:
