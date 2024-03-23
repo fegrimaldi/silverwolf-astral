@@ -5,7 +5,8 @@
 * Added `get_noon` action.
 * Added Moonset/MoonRise and Phase (no formatting).
 * Updated icon.
-* Added Sun's altitude and azimuth.
+* Added Sun's elevation and azimuth.
+* Added formating for time results.s
 
 ## 1.0.2
 
