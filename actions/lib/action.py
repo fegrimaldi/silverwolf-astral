@@ -34,5 +34,5 @@ class BaseAction(Action):
         self.moon = {
             "rise": moon.moonrise(location.observer, datetime.datetime.now(), tzinfo=location.timezone),
             "set": moon.moonset(location.observer, datetime.datetime.now(), tzinfo=location.timezone),
-            "phase": moon.phase
+            "phase": moon.phase(moon.phase(moon.moonset(location.observer, datetime.datetime.now(), tzinfo=location.timezone)))
         }
