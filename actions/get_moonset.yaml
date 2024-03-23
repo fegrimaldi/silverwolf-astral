@@ -1,0 +1,6 @@
+---
+name: "get_moonset"
+runner_type: "python-script"
+description: "Returns the time of moonset."
+enabled: true
+entry_point: "get_moonset.py"

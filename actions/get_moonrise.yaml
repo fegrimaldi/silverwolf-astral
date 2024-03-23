@@ -1,0 +1,6 @@
+---
+name: "get_moonrise"
+runner_type: "python-script"
+description: "Returns the time of moonrise"
+enabled: true
+entry_point: "get_moonrise.py"

@@ -1,7 +1,7 @@
 ---
 name : astral
 description : triggers for sunrise/sunset information
-version: 1.0.2
+version: 1.0.3
 author : Fabricio Grimaldi
 email : 34732205+fegrimaldi@users.noreply.github.com
 python_versions:

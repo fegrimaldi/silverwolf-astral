@@ -1,0 +1,6 @@
+---
+name: "get_moonphase"
+runner_type: "python-script"
+description: "Returns the phase of the moon."
+enabled: true
+entry_point: "get_moonphase.py"

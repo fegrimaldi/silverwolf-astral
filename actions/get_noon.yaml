@@ -1,0 +1,6 @@
+---
+name: "get_noon"
+runner_type: "python-script"
+description: "Returns the time of solar noon."
+enabled: true
+entry_point: "get_noon.py"

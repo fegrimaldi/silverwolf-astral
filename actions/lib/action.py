@@ -16,6 +16,8 @@ from st2common.runners.base_action import Action
 import datetime
 from astral import LocationInfo
 from astral.sun import sun
+from astral import moon
+
 
 
 class BaseAction(Action):
@@ -29,3 +31,8 @@ class BaseAction(Action):
                             float(self._longitude))
 
         self.sun = sun(location.observer, date=datetime.datetime.now(), tzinfo=location.timezone)
+        self.moon = {
+            "rise": moon.moonrise(location.observer, datetime.datetime.now(), tzinfo=location.timezone),
+            "set": moon.moonset(location.observer, datetime.datetime.now(), tzinfo=location.timezone),
+            "phase": moon.phase
+        }
