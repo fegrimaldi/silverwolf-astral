@@ -6,7 +6,8 @@
 * Added Moonset/MoonRise and Phase (no formatting).
 * Updated icon.
 * Added Sun's elevation and azimuth.
-* Added formating for time results.s
+* Added formating for time results.
+* Added Workflow that get all supported solar ad lunar events. 
 
 ## 1.0.2
 

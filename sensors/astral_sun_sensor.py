@@ -1,7 +1,7 @@
 from st2reactor.sensor.base import PollingSensor
 import st2common.util.date as date
 
-from astral import LocationInfo
+from astral import LocationInfo, sun
 
 __all__ = [
     'AstralSunSensor'
@@ -55,7 +55,7 @@ class AstralSunSensor(PollingSensor):
     def _update_sun_info(self):
         location = LocationInfo('name', 'region', 'GMT+0', float(self._latitude),
                             float(self._longitude))
-        self.sun = location.sun(location.observer, date=self._datetime, tzinfo=location.timezone)
+        self.sun = sun(location.observer)
 
  
 
