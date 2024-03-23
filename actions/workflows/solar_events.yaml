@@ -1,0 +1,52 @@
+version: 1.0
+
+description: Get's all Astral Solar Events.
+
+input:
+
+
+vars:
+  - dawn: null
+  - sunrise: null
+  - noon: null
+  - sunset: null
+  - dusk: null
+
+output:
+  - dawn: <% ctx().dawn %>
+  - sunrise: <% ctx().sunrise %>
+  - noon: <% ctx().noon %>
+  - sunset: <% ctx().sunset %>
+  - dusk: <% ctx().dusk %>
+
+tasks:
+  get_dawn:
+    action: astral.get_dawn
+    next:
+      - when: <% succeeded() %>
+        publish: dawn=<% result().result %>
+        do: get_sunrise
+  get_sunrise:
+    action: astral.get_sunrise
+    next:
+      - when: <% succeeded() %>
+        publish: sunrise=<% result().result %>
+        do: get_noon
+  get_noon:
+    action: astral.get_sunrise
+    next:
+      - when: <% succeeded() %>
+        publish: noon=<% result().result %>
+        do: get_sunset
+   get_sunset:
+    action: astral.get_sunset
+    next:
+      - when: <% succeeded() %>
+        publish: sunset=<% result().result %>
+        do: get_sunset
+  get_dusk:
+    action: astral.get_dusk
+    next:
+      - when: <% succeeded() %>
+        publish: dusk=<% result().result %>
+             

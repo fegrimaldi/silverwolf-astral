@@ -1,0 +1,8 @@
+---
+name: solar_events
+pack: astral
+description: Gets all solar events for the day.
+runner_type: orquesta
+entry_point: workflows/solar_events.yaml
+enabled: true
+parameters:
