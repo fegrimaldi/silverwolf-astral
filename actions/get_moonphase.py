@@ -16,4 +16,4 @@ from lib import action
 
 class GetMonnPhaseAction(action.BaseAction):
     def run(self):
-        return round(self.moon['phase'], 4)
+        return round(self.moon['phase'], 5)
