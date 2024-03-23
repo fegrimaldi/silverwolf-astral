@@ -32,8 +32,8 @@ class BaseAction(Action):
                             float(self._longitude))
 
         self.sun = sun(location.observer, date=self._datetime, tzinfo=location.timezone)
-        self.sun_alt = elevation(location.observer, datetime.datetime.now())
-        self.sun_az = azimuth(location.observer, datetime.datetime.now())
+        self.sun_alt = elevation(location.observer, self._datetime)
+        self.sun_az = azimuth(location.observer, self._datetime)
         self.moon = {
             "rise": moon.moonrise(location.observer, date=self._datetime, tzinfo=location.timezone),
             "set": moon.moonset(location.observer, date=self._datetime, tzinfo=location.timezone),

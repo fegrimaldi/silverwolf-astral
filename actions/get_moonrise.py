@@ -12,8 +12,8 @@ limitations under the License.
 """
 
 from lib import action
-
+from lib.utils import date_to_str
 
 class GetMoonriseAction(action.BaseAction):
     def run(self):
-        return str(self.moon['rise'])
+        return date_to_str(self.moon['rise'])

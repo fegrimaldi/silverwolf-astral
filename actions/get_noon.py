@@ -12,8 +12,8 @@ limitations under the License.
 """
 
 from lib import action
-
+from lib.utils import date_to_str
 
 class GetNoonAction(action.BaseAction):
     def run(self):
-        return str(self.sun['noon'])
+        return date_to_str(self.sun['noon'])
