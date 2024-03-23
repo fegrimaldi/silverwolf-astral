@@ -1,0 +1,6 @@
+---
+name: "get_sun_altaz"
+runner_type: "python-script"
+description: "Returns the sun's current altitude and azimuth."
+enabled: true
+entry_point: "get_sun_altaz.py"
