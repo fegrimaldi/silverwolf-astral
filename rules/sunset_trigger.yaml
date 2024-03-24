@@ -1,9 +1,7 @@
  ---
-pack: astral
-ref: astral.sunset_trigger
 name: sunset_trigger
-uid: rule:astral:sunset_trigger
-tags: []
+pack: astral
+description: Sets theatre mode in the media room at sunset.
 enabled: true
 trigger:
   type: astral.sunset
