@@ -1,0 +1,21 @@
+ ---
+pack: astral
+ref: astral.sunset_trigger
+name: sunset_trigger
+uid: rule:astral:sunset_trigger
+tags: []
+type:
+  ref: standard
+  parameters: {}
+enabled: true
+trigger:
+  type: astral.sunset
+  ref: astral.sunset
+  description: Trigger type for sunset.
+  parameters: {}
+metadata_file: ''
+context:
+  user: st2admin
+action:
+  ref: lifx.set_theatre
+  description: Sets theatre mode in the media room.
