@@ -1,4 +1,4 @@
- ---
+---
 name: sunset_trigger
 pack: astral
 description: Sets theatre mode in the media room at sunset.
