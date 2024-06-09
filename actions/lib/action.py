@@ -13,7 +13,8 @@ limitations under the License.
 
 from st2common.runners.base_action import Action
 
-import datetime
+
+from datetime import datetime, timedelta
 from astral import LocationInfo
 from astral.sun import sun, elevation, azimuth
 from astral import moon
@@ -26,7 +27,7 @@ class BaseAction(Action):
         self._latitude = self.config['latitude']
         self._longitude = self.config['longitude']
         self._timezone = self.config['timezone']
-        self._datetime = datetime.datetime.now()
+        self._datetime = datetime.now()
 
         location = LocationInfo('name', 'region', self._timezone, float(self._latitude),
                             float(self._longitude))
@@ -34,8 +35,17 @@ class BaseAction(Action):
         self.sun = sun(location.observer, date=self._datetime, tzinfo=location.timezone)
         self.sun_alt = elevation(location.observer, self._datetime)
         self.sun_az = azimuth(location.observer, self._datetime)
+
+        moonrise = moon.moonrise(location.observer, date=self._datetime, tzinfo=location.timezone)
+        if not moonrise: 
+            moonrise = moon.moonrise(location.observer, date=(self._datetime - timedelta(hours=24)), tzinfo=location.timezone)
+
+        moonset = moon.moonset(location.observer, date=self._datetime, tzinfo=location.timezone)
+        if not moonset:
+            moonset = moon.moonset(location.observer, date=(self._datetime + timedelta(hours=24)), tzinfo=location.timezone)
+
         self.moon = {
-            "rise": moon.moonrise(location.observer, date=self._datetime, tzinfo=location.timezone),
-            "set": moon.moonset(location.observer, date=self._datetime, tzinfo=location.timezone),
+            "rise": moonrise,
+            "set": moonset,
             "phase": moon.phase(date=self._datetime)
         }
