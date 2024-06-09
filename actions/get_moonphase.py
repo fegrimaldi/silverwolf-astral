@@ -13,7 +13,27 @@ limitations under the License.
 
 from lib import action
 
+def get_lunar_phase(day):
+    if 0 <= day <= 3.499:
+        return "New moon"
+    elif 3.5 <= day <= 6.999:
+        return "Waxing crescent"
+    elif 7 <= day <= 10.499:
+        return "First quarter"
+    elif 10.5 <= day <= 13.999:
+        return "Waxing gibbous"
+    elif 14 <= day <= 17.499:
+        return "Full moon"
+    elif 17.5 <= day <= 20.999:
+        return "Waning gibbous"
+    elif 21 <= day <= 24.499:
+        return "Last quarter"
+    elif 24.5 <= day <= 27.999:
+        return "Waning crescent"
+    else:
+        return "Invalid day"
 
-class GetMonnPhaseAction(action.BaseAction):
+
+class GetMoonPhaseAction(action.BaseAction):
     def run(self):
-        return round(self.moon['phase'], 5)
+        return get_lunar_phase(round(self.moon['phase'], 3))
